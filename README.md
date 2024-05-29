@@ -16,7 +16,7 @@ To get started with the Farmer Ordering System, follow these steps:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/nicele08/farmflow-backend.git
+   git clone https://github.com/nicele08/farm-backend.git
    ```
 
 2. Install the dependencies:
@@ -62,7 +62,7 @@ To get started with the Farmer Ordering System, follow these steps:
 6. Start the server:
 
 ```shell
-    cd farmflow-backend
+    cd farm-backend
 ```
 
 ```shell

@@ -8,7 +8,7 @@ async function main() {
   logger.info('Seeding database...');
   try {
     const admin = await prisma.user.findFirst({
-      where: { email: 'admin@farmflow.com' },
+      where: { email: 'admin@farm.com' },
     });
 
     if (admin) {
@@ -19,7 +19,7 @@ async function main() {
     await prisma.user.create({
       data: {
         name: 'Admin',
-        email: 'admin@farmflow.com',
+        email: 'admin@farm.com',
         role: 'ADMIN',
         password: await encryptPassword('Admin123'),
       },
@@ -44,7 +44,7 @@ async function main() {
     });
 
     const agro = await prisma.user.findFirst({
-      where: { email: 'john12@farmflow.com' },
+      where: { email: 'john12@farm.com' },
     });
 
     if (agro) {
@@ -55,7 +55,7 @@ async function main() {
     await prisma.user.create({
       data: {
         name: 'John Kabera',
-        email: 'john12@farmflow.com',
+        email: 'john12@farm.com',
         role: 'STORE',
         password: await encryptPassword('John123'),
       },

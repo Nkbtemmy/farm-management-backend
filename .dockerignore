@@ -1,0 +1,15 @@
+node_modules
+logs
+.husky
+.github
+.idea
+.commitlintrc.json
+.prettierrc.json
+.env.example
+.eslintignore
+.eslintrc.json
+appspec.yml
+scripts
+tests
+jest.config.ts
+newrelic_agent.log

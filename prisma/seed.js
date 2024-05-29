@@ -21,7 +21,7 @@ function main() {
         logger_1.default.info('Seeding database...');
         try {
             const admin = yield prisma.user.findFirst({
-                where: { email: 'admin@farmflow.com' },
+                where: { email: 'admin@farm.com' },
             });
             if (admin) {
                 yield prisma.user.delete({
@@ -31,7 +31,7 @@ function main() {
             yield prisma.user.create({
                 data: {
                     name: 'Admin',
-                    email: 'admin@farmflow.com',
+                    email: 'admin@farm.com',
                     role: 'ADMIN',
                     password: yield (0, encryption_1.encryptPassword)('Admin123'),
                 },
@@ -53,7 +53,7 @@ function main() {
                 },
             });
             const agro = yield prisma.user.findFirst({
-                where: { email: 'john12@farmflow.com' },
+                where: { email: 'john12@farm.com' },
             });
             if (agro) {
                 yield prisma.user.delete({
@@ -63,7 +63,7 @@ function main() {
             yield prisma.user.create({
                 data: {
                     name: 'John Kabera',
-                    email: 'john12@farmflow.com',
+                    email: 'john12@farm.com',
                     role: 'STORE',
                     password: yield (0, encryption_1.encryptPassword)('John123'),
                 },

@@ -1,0 +1,48 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: production
+    image: "storefront-app"
+    restart: on-failure
+    ports:
+      - "2025:2025"
+    env_file:
+      - .env
+    environment:
+      HOST: app:2025
+      PORT: 2025
+      DATABASE_URL: postgres://POSTGRES_USER:POSTGRES_PASSWORD@postgres_db:5432/POSTGRES_DB
+      NODE_ENV: development
+      JWT_SECRET: adds!@#sdwe
+      JWT_ACCESS_EXPIRATION_MINUTES: 123
+    depends_on:
+      - postgres_db
+    command: ["yarn", "start"]
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - storefront-networks
+
+  postgres_db:
+    image: postgres
+    restart: on-failure
+    environment:
+      - POSTGRES_DB=POSTGRES_DB
+      - POSTGRES_USER=POSTGRES_USER
+      - POSTGRES_PORT=POSTGRES_PORT
+      - POSTGRES_PASSWORD=POSTGRES_PASSWORD
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - storefront-networks
+
+volumes:
+  postgres_data:
+
+networks:
+  storefront-networks:
+    driver: bridge
