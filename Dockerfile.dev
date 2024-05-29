@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18 AS build
+FROM node:18-alpine3.16 AS build
 
 WORKDIR /usr/src/app
 
@@ -22,7 +22,7 @@ RUN yarn prisma generate
 RUN yarn build
 
 # Stage 2: Development (Optional)
-FROM node:18 AS dev
+FROM node:18-alpine3.16 AS dev
 ENV NODE_ENV=development
 WORKDIR /usr/src/app
 
@@ -43,7 +43,7 @@ EXPOSE 4006
 CMD [ "yarn", "dev" ]
 
 # Stage 3: Production
-FROM node:18-alpine AS production
+FROM node:18-alpine3.16 AS production
 
 WORKDIR /usr/src/app
 
@@ -55,7 +55,7 @@ COPY --from=build /usr/src/app/build ./build
 
 # Install only production dependencies
 RUN yarn install --production
-
+RUN npx prisma generate
 # Expose the necessary port
 EXPOSE 4006
 
