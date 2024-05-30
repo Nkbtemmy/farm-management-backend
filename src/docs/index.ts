@@ -1,15 +1,20 @@
 import authPaths from './paths/auth.path';
+import order from './paths/order.path';
+import product from './paths/product.path';
 import definitions from './definitions';
+
 
 const paths = {
   ...authPaths,
+  ...product,
+  ...order
 };
 
 const swaggerDocs = {
   swagger: '2.0',
   info: {
     version: '1.0.0.',
-    title: 'Farm APIs Documentation',
+    title: 'FMS APIs Documentation',
     description: '',
   },
   basePath: '/',
@@ -25,7 +30,7 @@ const swaggerDocs = {
   },
   tags: [
     {
-      name: 'Farm APIs Documentation',
+      name: 'FMS APIs Documentation',
     },
   ],
   consumes: ['application/json'],

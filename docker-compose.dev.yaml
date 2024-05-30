@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-      target: production
-    image: "fms-prod-app"
+      target: dev
+    image: "fms-dev-app"
     restart: on-failure
     ports:
       - "2025:2025"
@@ -15,16 +15,22 @@ services:
       HOST: app:2025
       PORT: 2025
       DATABASE_URL: postgres://POSTGRES_USER:POSTGRES_PASSWORD@postgres_db:5432/POSTGRES_DB
-      NODE_ENV: production
+      NODE_ENV: development
       JWT_SECRET: adds!@#sdwe
       JWT_ACCESS_EXPIRATION_MINUTES: 123
     depends_on:
       - postgres_db
-    command: ["yarn", "start"]
+    command: >
+      bash -c "
+        npx prisma generate && 
+        npx prisma migrate deploy && 
+        yarn db:seed && 
+        yarn dev
+      "
     volumes:
       - .:/usr/src/app
     networks:
-      - fms-prod-networks
+      - fms-dev-networks
 
   postgres_db:
     image: postgres
@@ -38,11 +44,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:
-      - fms-prod-networks
+      - fms-dev-networks
 
 volumes:
   postgres_data:
 
 networks:
-  fms-prod-networks:
+  fms-dev-networks:
     driver: bridge

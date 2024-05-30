@@ -21,12 +21,12 @@ async function main() {
         name: 'Admin',
         email: 'admin@farm.com',
         role: 'ADMIN',
-        password: await encryptPassword('Admin123'),
+        password: await encryptPassword('admin123!'),
       },
     });
 
     const farmer = await prisma.user.findFirst({
-      where: { email: 'gatera@example.com' },
+      where: { email: 'nkubito@example.com' },
     });
 
     if (farmer) {
@@ -36,10 +36,10 @@ async function main() {
     }
     await prisma.user.create({
       data: {
-        name: 'Edmond Gatera',
-        email: 'gatera@example.com',
+        name: 'Emmy Nkubito',
+        email: 'nkubito@example.com',
         role: 'USER',
-        password: await encryptPassword('Gatera123'),
+        password: await encryptPassword('nkubito123'),
       },
     });
 
@@ -54,7 +54,7 @@ async function main() {
     }
     await prisma.user.create({
       data: {
-        name: 'John Kabera',
+        name: 'John Bosco',
         email: 'john12@farm.com',
         role: 'STORE',
         password: await encryptPassword('John123'),
