@@ -15,3 +15,5 @@ jest.config.ts
 newrelic_agent.log
 build
 dist
+package-lock.json
+yarn.lock
