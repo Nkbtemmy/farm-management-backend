@@ -3,8 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-      target: production
+      dockerfile: Dockerfile
     image: "fms-prod-app"
     restart: on-failure
     ports:

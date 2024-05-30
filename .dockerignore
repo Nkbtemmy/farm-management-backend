@@ -13,3 +13,5 @@ scripts
 tests
 jest.config.ts
 newrelic_agent.log
+build
+dist

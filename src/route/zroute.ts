@@ -28,23 +28,17 @@ const defaultRoutes = [
     path: '/orders',
     route: orderRoute,
   },
-];
-
-const devRoutes = [
   {
     path: '/api-docs',
     route: docsRoute,
   },
 ];
 
+
 defaultRoutes.forEach((route) => {
-  router.use(`/api${route.path}`, route.route);
+  router.use(`/api/v1${route.path}`, route.route);
 });
 
-if (Config.env === 'development') {
-  devRoutes.forEach((route) => {
-    router.use(route.path, route.route);
-  });
-}
+
 
 export default router;
