@@ -1,5 +1,5 @@
 const authPaths = {
-  '/api/auth/login': {
+  '/api/v1/auth/login': {
     post: {
       tags: ['Auth'],
       summary: 'Login',
@@ -29,7 +29,7 @@ const authPaths = {
     },
   },
 
-  '/api/auth/register': {
+  '/api/v1/auth/register': {
     post: {
       tags: ['Auth'],
       summary: 'Register',

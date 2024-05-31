@@ -1,5 +1,5 @@
 const productPaths = {
-  '/api/products': {
+  '/api/v1/products': {
     post: {
       tags: ['Products'],
       summary: 'Create Product',
@@ -62,7 +62,7 @@ const productPaths = {
       },
     },
   },
-  '/api/products/{id}': {
+  '/api/v1/products/{id}': {
     get: {
       tags: ['Products'],
       summary: 'Get Product',
@@ -143,7 +143,7 @@ const productPaths = {
       },
     },
   },
-  '/api/products/calculate/{productId}/{landSize}': {
+  '/api/v1/products/calculate/{productId}/{landSize}': {
     get: {
       tags: ['Products'],
       summary: 'Calculate Product Quantity',

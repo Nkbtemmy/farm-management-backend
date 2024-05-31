@@ -1,5 +1,5 @@
 const orderPaths = {
-  '/api/orders': {
+  '/api/v1/orders': {
     post: {
       tags: ['Orders'],
       summary: 'Create Order',
@@ -62,7 +62,7 @@ const orderPaths = {
       },
     },
   },
-  '/api/orders/{id}': {
+  '/api/v1/orders/{id}': {
     get: {
       tags: ['Orders'],
       summary: 'Get Order',

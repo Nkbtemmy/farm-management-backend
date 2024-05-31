@@ -4,11 +4,11 @@ const definitions = {
     properties: {
       email: {
         type: 'string',
-        example: '',
+        example: "admin@farm.com",
       },
       password: {
         type: 'string',
-        example: '',
+        example: "admin123!",
       },
     },
   },

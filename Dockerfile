@@ -35,8 +35,12 @@ COPY --from=build /usr/src/app/node_modules/.prisma ./node_modules/.prisma
 # Copy the build artifacts
 COPY --from=build /usr/src/app/build ./build
 
-# Generate Prisma client in the production stage if necessary
-RUN npx prisma generate
+# Generate the Prisma Client
+RUN yarn prisma generate
+
+# Create a migration and migrate your database
+RUN yarn prisma migrate dev --name init
+
 
 # Expose the port your application will run on
 EXPOSE 4006
