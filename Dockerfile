@@ -38,8 +38,8 @@ COPY --from=build /usr/src/app/build ./build
 # Generate the Prisma Client
 RUN yarn prisma generate
 
-# Create a migration and migrate your database
-RUN yarn prisma migrate dev --name init
+# # Create a migration and migrate your database
+# RUN yarn prisma migrate dev --name init
 
 
 # Expose the port your application will run on
