@@ -1,13 +1,14 @@
 {
   "name": "farm-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon src/server.ts",
     "build": "rimraf build && tsc -p .",
-    "start": "node build/index.js",
+    "start": "node build/server.js",
     "test": "jest --coverage -i --colors --verbose --detectOpenHandles",
+    "test:watch": "jest --runInBand --watchAll",
     "db:seed": "ts-node prisma/seed.ts",
     "db:push": "prisma db push",
     "db:generate": "prisma generate"

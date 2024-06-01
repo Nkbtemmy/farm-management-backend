@@ -12,4 +12,5 @@ module.exports = {
     'src/app.ts',
   ],
   coverageReporters: ['text', 'lcov', 'clover', 'html'],
+  testMatch: ["**/**/*.test.ts"],
 };
