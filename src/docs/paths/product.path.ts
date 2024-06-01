@@ -6,6 +6,7 @@ const productPaths = {
       description: 'Create a new product',
       operationId: 'createProduct',
       consumes: ['application/json'],
+      security: [{JWT: [],},],
       produces: ['application/json'],
       parameters: [
         {
@@ -32,6 +33,7 @@ const productPaths = {
       summary: 'Get All Products',
       description: 'Retrieve all products',
       operationId: 'getAllProducts',
+      security: [{JWT: [],},],
       produces: ['application/json'],
       parameters: [
         {
@@ -68,6 +70,7 @@ const productPaths = {
       summary: 'Get Product',
       description: 'Retrieve a specific product by ID',
       operationId: 'getProduct',
+      security: [{JWT: [],},],
       produces: ['application/json'],
       parameters: [
         {
@@ -92,6 +95,7 @@ const productPaths = {
       summary: 'Update Product',
       description: 'Update an existing product',
       operationId: 'updateProduct',
+      security: [{JWT: [],},],
       consumes: ['application/json'],
       produces: ['application/json'],
       parameters: [
@@ -124,6 +128,7 @@ const productPaths = {
     delete: {
       tags: ['Products'],
       summary: 'Delete Product',
+      security: [{JWT: [],},],
       description: 'Delete a specific product by ID',
       operationId: 'deleteProduct',
       produces: ['application/json'],
@@ -147,6 +152,7 @@ const productPaths = {
     get: {
       tags: ['Products'],
       summary: 'Calculate Product Quantity',
+      security: [{JWT: [],},],
       description: 'Calculate the quantity of product needed for a given land size',
       operationId: 'calculateProductQuantity',
       produces: ['application/json'],

@@ -5,6 +5,7 @@ const orderPaths = {
       summary: 'Create Order',
       description: 'Create a new order',
       operationId: 'createOrder',
+      security: [{JWT: [],},],
       consumes: ['application/json'],
       produces: ['application/json'],
       parameters: [
@@ -32,6 +33,7 @@ const orderPaths = {
       summary: 'Get All Orders',
       description: 'Retrieve all orders',
       operationId: 'getAllOrders',
+      security: [{JWT: [],},],
       produces: ['application/json'],
       parameters: [
         {
@@ -69,6 +71,7 @@ const orderPaths = {
       description: 'Retrieve a specific order by ID',
       operationId: 'getOrder',
       produces: ['application/json'],
+      security: [{JWT: [],},],
       parameters: [
         {
           in: 'path',
@@ -92,6 +95,7 @@ const orderPaths = {
       summary: 'Update Order',
       description: 'Update an existing order',
       operationId: 'updateOrder',
+      security: [{JWT: [],},],
       consumes: ['application/json'],
       produces: ['application/json'],
       parameters: [
@@ -126,6 +130,7 @@ const orderPaths = {
       summary: 'Delete Order',
       description: 'Delete a specific order by ID',
       operationId: 'deleteOrder',
+      security: [{JWT: [],},],
       produces: ['application/json'],
       parameters: [
         {
