@@ -2,30 +2,46 @@
 
 This project is a Farmer Ordering System developed using Express.js, Prisma, PostgreSQL, and TypeScript. The system allows farmers to order fertilizers and seeds based on their land size. The following sections provide information on how to set up the project and configure the necessary environment variables.
 
+# Features
+
+- Create and Retrieve ranked users with different roles
+- Enable CRUD operation on products
+- Also Enable CRUD operations to order the fertilizer you want
+- Use of PostgreSQL arrays, JSONB for unstructured data
+
 ## Prerequisites
 
 Make sure you have the following software installed on your machine:
 
-- Node.js (version >= 12)
-- PostgreSQL (version >= 9) with a database instance set up
+- Node.js (version >= 18)
+- PostgreSQL (version >= 15) with a database instance set up
+
+## Technologies Used
+
+- [Express.js](https://expressjs.com/): Fast and minimalist web application framework for Node.js.
+- [Prisma](https://www.prisma.io/): Modern database toolkit for TypeScript and Node.js.
+- [PostgreSQL](https://www.postgresql.org/): Powerful open-source relational database system.
+- [TypeScript](https://www.typescriptlang.org/):Typed superset of JavaScript that compiles to plain JavaScript.
+-  [Docker](https://www.typescriptlang.org/):Docker and docker compose used to make this app containerized.
+
 
 ## Getting Started
 
 To get started with the Farmer Ordering System, follow these steps:
 
-1. Clone the repository:
-
-   ```shell
-   git clone https://github.com/nicele08/farm-backend.git
+   ```bash
+   git clone https://github.com/Nkbtemmy/farm-management-backend.git
+   cd farm-management-backend
+   Open Terminal in current directory
+   Run 'npm install' or 'yarn install'
+   CREATE .env file and copy all variable from .env.example file 
+   RUN npm 'run dev' for developement or 'npm build' and 'npm start' for production
+   Then open your browser and start explore
    ```
 
-2. Install the dependencies:
 
-   ```shell
-    yarn install
-   ```
 
-3. Create a `.env` file in the root directory of the project and add the following environment variables:
+1. Create a `.env` file in the root directory of the project and add the following environment variables:
 
    ```shell
     DATABASE_URL="postgresql://<username>:<password>@<host>:<port>/<database>"
@@ -36,7 +52,7 @@ To get started with the Farmer Ordering System, follow these steps:
    ```
 
    ```
-   PORT=3000
+   PORT=2024
    ```
 
    ```
@@ -47,37 +63,51 @@ To get started with the Farmer Ordering System, follow these steps:
    JWT_ACCESS_EXPIRATION_MINUTES=30
    ```
 
-4. Run the database push:
+2. Run the database push:
 
    ```shell
     yarn db:push
    ```
 
-5. Run the database seed:
+3. Run the database seed:
 
    ```shell
     yarn db:seed
    ```
 
-6. Start the server:
+### Configuration
 
-```shell
-    cd farm-backend
-```
+    Environment variables and configuration settings can be managed in `.env` or `.env.example`.
 
-```shell
- yarn dev
-```
+   ```bash
+      - npm run `dev` for starting development server
+      - npm run `test` to run tests
+      - npm run `start` for production while did npm run `build`
+   ```
 
-7. Open your browser and navigate to `http://localhost:3000/docs` to view the Swagger documentation.
 
-## Technologies Used
 
-- [Express.js](https://expressjs.com/): Fast and minimalist web application framework for Node.js.
-- [Prisma](https://www.prisma.io/): Modern database toolkit for TypeScript and Node.js.
-- [PostgreSQL](https://www.postgresql.org/): Powerful open-source relational database system.
-- [TypeScript](https://www.typescriptlang.org/):Typed superset of JavaScript that compiles to plain JavaScript.
+# CI/CD Pipelines
 
-## Contributing
+The service utilizes Jenkins for continuous integration and delivery workflows including:
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+## Development Pipeline
+
+    Run unit tests
+    Build Docker images
+    Validate Swagger docs
+    Push images to Docker registry
+    Deploy to dev environment
+    Production Pipeline
+### Automated version tagging
+
+    Run integration tests
+    Container image upgrade
+    Zero downtime deploy
+    Traffic shift
+    Monitoring and rollback
+    Jenkins enables automating testing, Docker build/deploy.
+
+## Deployment
+
+This app is deployed on the Onrender server the link has been shared on the right side of this repository.
